@@ -4,7 +4,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-dvh flex flex-col max-w-lg mx-auto">
+    <div className="min-h-dvh flex flex-col max-w-md mx-auto lg:max-w-lg lg:my-8 lg:min-h-0 lg:rounded-3xl lg:shadow-2xl lg:overflow-hidden">
       {/* 그라데이션 헤더 */}
       <div className="animated-gradient-bg relative overflow-hidden px-6 pt-14 pb-16">
         {/* 부유 오브 */}
@@ -18,10 +18,10 @@ export default function AuthLayout({
         />
 
         <div className="relative z-10">
-          <h1 className="text-[26px] font-extrabold text-white tracking-tight">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
             모아소송
           </h1>
-          <p className="text-[14px] text-white/50 mt-1">
+          <p className="text-sm text-white/50 mt-1">
             소액 사기 피해 통합 플랫폼
           </p>
         </div>

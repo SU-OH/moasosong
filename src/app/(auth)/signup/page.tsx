@@ -16,7 +16,7 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
 const INPUT_CLASS =
-  "h-[54px] rounded-2xl border-border/60 bg-slate-50/50 focus:bg-white text-[15px] px-4 transition-all duration-200";
+  "h-12 rounded-xl border-border/60 bg-slate-50/50 focus:bg-white text-base px-4 transition-all duration-200";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -75,7 +75,7 @@ export default function SignupPage() {
       <div className="flex-1 space-y-5">
         {/* 역할 선택 */}
         <div className="space-y-2">
-          <Label className="text-[14px] font-medium text-navy-800">
+          <Label className="text-sm font-medium text-navy-800">
             가입 유형
           </Label>
           <div className="grid grid-cols-2 gap-3">
@@ -89,7 +89,7 @@ export default function SignupPage() {
                 whileTap={{ scale: 0.96 }}
                 onClick={() => setValue("role", role.value)}
                 className={cn(
-                  "relative flex flex-col items-center gap-2 py-6 rounded-2xl border-2 transition-all duration-200",
+                  "relative flex flex-col items-center gap-2 py-6 rounded-xl border-2 transition-all duration-200",
                   selectedRole === role.value
                     ? "border-navy-600 bg-navy-50/80 shadow-md shadow-navy-700/8"
                     : "border-border/60 bg-slate-50/30 hover:bg-slate-50"
@@ -121,7 +121,7 @@ export default function SignupPage() {
                 </div>
                 <span
                   className={cn(
-                    "text-[14px] font-semibold transition-colors",
+                    "text-sm font-semibold transition-colors",
                     selectedRole === role.value
                       ? "text-navy-700"
                       : "text-gray-500"
@@ -140,7 +140,7 @@ export default function SignupPage() {
         </div>
 
         <div className="space-y-2">
-          <Label className="text-[14px] font-medium text-navy-800">이름</Label>
+          <Label className="text-sm font-medium text-navy-800">이름</Label>
           <Input
             placeholder="홍길동"
             {...register("full_name")}
@@ -154,7 +154,7 @@ export default function SignupPage() {
         </div>
 
         <div className="space-y-2">
-          <Label className="text-[14px] font-medium text-navy-800">
+          <Label className="text-sm font-medium text-navy-800">
             이메일
           </Label>
           <Input
@@ -171,7 +171,7 @@ export default function SignupPage() {
         </div>
 
         <div className="space-y-2">
-          <Label className="text-[14px] font-medium text-navy-800">
+          <Label className="text-sm font-medium text-navy-800">
             비밀번호
           </Label>
           <Input
@@ -188,7 +188,7 @@ export default function SignupPage() {
         </div>
 
         <div className="space-y-2">
-          <Label className="text-[14px] font-medium text-navy-800">
+          <Label className="text-sm font-medium text-navy-800">
             비밀번호 확인
           </Label>
           <Input
@@ -205,7 +205,7 @@ export default function SignupPage() {
         </div>
 
         <div className="space-y-2">
-          <Label className="text-[14px] font-medium text-navy-800">
+          <Label className="text-sm font-medium text-navy-800">
             전화번호 <span className="text-muted-foreground font-normal">(선택)</span>
           </Label>
           <Input
@@ -227,7 +227,7 @@ export default function SignupPage() {
               className="overflow-hidden space-y-5"
             >
               <div className="space-y-2">
-                <Label className="text-[14px] font-medium text-navy-800">
+                <Label className="text-sm font-medium text-navy-800">
                   변호사 등록번호
                 </Label>
                 <Input
@@ -243,7 +243,7 @@ export default function SignupPage() {
               </div>
 
               <div className="space-y-2">
-                <Label className="text-[14px] font-medium text-navy-800">
+                <Label className="text-sm font-medium text-navy-800">
                   소속 법률사무소{" "}
                   <span className="text-muted-foreground font-normal">(선택)</span>
                 </Label>
@@ -262,7 +262,7 @@ export default function SignupPage() {
         <motion.div whileTap={{ scale: 0.97 }}>
           <Button
             type="submit"
-            className="w-full h-[54px] bg-navy-700 hover:bg-navy-800 text-white text-[15px] font-bold rounded-2xl shadow-md shadow-navy-700/15"
+            className="w-full h-12 bg-navy-700 hover:bg-navy-800 text-white text-base font-bold rounded-xl shadow-md shadow-navy-700/15"
             disabled={isLoading || !selectedRole}
           >
             {isLoading ? (
@@ -273,7 +273,7 @@ export default function SignupPage() {
           </Button>
         </motion.div>
 
-        <p className="text-[13px] text-muted-foreground text-center py-2">
+        <p className="text-sm text-muted-foreground text-center py-2">
           이미 계정이 있으신가요?{" "}
           <Link href="/login" className="text-navy-700 font-semibold">
             로그인

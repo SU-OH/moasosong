@@ -26,7 +26,7 @@ export default async function LawyerCasesPage() {
       </div>
 
       {categories && categories.length > 0 ? (
-        <div className="space-y-3">
+        <div className="space-y-3 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-3">
           {categories.map((cat) => (
             <Link key={cat.id} href={`/lawyer/cases/${cat.id}`}>
               <Card className="border-0 shadow-sm hover:shadow-md transition-shadow cursor-pointer">

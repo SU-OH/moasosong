@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 export function FadeInSection({
@@ -12,16 +12,17 @@ export function FadeInSection({
   delay?: number;
   className?: string;
 }) {
+  const shouldReduce = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 14 }}
+      initial={shouldReduce ? false : { opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{
-        type: "spring",
-        stiffness: 260,
-        damping: 24,
-        delay,
-      }}
+      transition={
+        shouldReduce
+          ? { duration: 0 }
+          : { type: "spring", stiffness: 260, damping: 24, delay }
+      }
       className={className}
     >
       {children}

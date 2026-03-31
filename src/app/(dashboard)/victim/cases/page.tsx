@@ -53,7 +53,7 @@ export default async function VictimCasesPage() {
       </div>
 
       {cases && cases.length > 0 ? (
-        <div className="space-y-3">
+        <div className="space-y-3 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-3">
           {cases.map((c) => (
             <Link key={c.id} href={`/victim/cases/${c.id}`}>
               <Card className="border-0 shadow-sm hover:shadow-md transition-shadow cursor-pointer">

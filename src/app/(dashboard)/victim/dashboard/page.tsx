@@ -49,8 +49,8 @@ export default async function VictimDashboard() {
       <FadeInSection>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-[14px] text-muted-foreground">안녕하세요</p>
-            <p className="text-[22px] font-extrabold text-navy-900 tracking-tight">
+            <p className="text-sm text-muted-foreground">안녕하세요</p>
+            <p className="text-2xl font-extrabold text-navy-900 tracking-tight">
               {profile?.full_name}님
             </p>
           </div>
@@ -62,7 +62,7 @@ export default async function VictimDashboard() {
 
       {/* 통계 카드 */}
       <FadeInSection delay={0.08}>
-        <div className="grid grid-cols-3 gap-2.5">
+        <div className="grid grid-cols-3 gap-2.5 md:gap-4">
           {[
             {
               Icon: FileText,
@@ -92,7 +92,7 @@ export default async function VictimDashboard() {
           ].map((item) => (
             <div
               key={item.label}
-              className={`bg-white rounded-2xl p-3.5 border-l-[3px] ${item.accent} card-premium`}
+              className={`bg-white rounded-2xl p-3.5 md:p-5 border-l-[3px] ${item.accent} card-premium`}
             >
               <div className="relative inline-flex">
                 {item.pulse && (
@@ -112,10 +112,10 @@ export default async function VictimDashboard() {
                   <item.Icon className={`w-[18px] h-[18px] ${item.iconColor}`} />
                 </div>
               </div>
-              <p className="text-[24px] font-extrabold text-navy-900 mt-2 tracking-tight">
+              <p className="text-2xl md:text-3xl font-extrabold text-navy-900 mt-2 tracking-tight">
                 {item.value}
               </p>
-              <p className="text-[11px] text-muted-foreground font-medium">
+              <p className="text-xs text-muted-foreground font-medium">
                 {item.label}
               </p>
             </div>
@@ -127,10 +127,10 @@ export default async function VictimDashboard() {
       <FadeInSection delay={0.16}>
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-[15px] font-bold text-navy-900">최근 사건</h3>
+            <h3 className="text-base font-bold text-navy-900">최근 사건</h3>
             <Link
               href="/victim/cases"
-              className="text-[13px] text-muted-foreground flex items-center gap-0.5 active:text-navy-600"
+              className="text-sm text-muted-foreground flex items-center gap-0.5 active:text-navy-600"
             >
               전체
               <ChevronRight className="w-3.5 h-3.5" />
@@ -138,7 +138,7 @@ export default async function VictimDashboard() {
           </div>
 
           {cases && cases.length > 0 ? (
-            <div className="space-y-2.5">
+            <div className="space-y-2.5 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-3">
               {cases.map((c) => {
                 const status = STATUS_LABELS[c.status];
                 const borderColor =
@@ -155,10 +155,10 @@ export default async function VictimDashboard() {
                     >
                       <div className="flex items-start justify-between">
                         <div className="flex-1 min-w-0">
-                          <p className="text-[15px] font-semibold text-navy-900 truncate">
+                          <p className="text-base font-semibold text-navy-900 truncate">
                             {c.title}
                           </p>
-                          <p className="text-[13px] text-muted-foreground mt-0.5">
+                          <p className="text-sm text-muted-foreground mt-0.5">
                             {Number(c.amount_lost).toLocaleString()}원 ·{" "}
                             {new Date(c.created_at).toLocaleDateString(
                               "ko-KR",
@@ -168,7 +168,7 @@ export default async function VictimDashboard() {
                         </div>
                         <Badge
                           variant={status?.variant || "secondary"}
-                          className="ml-3 shrink-0 text-[11px] rounded-lg gap-1"
+                          className="ml-3 shrink-0 text-xs rounded-lg gap-1"
                         >
                           {status?.dot && (
                             <span className="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse" />
@@ -189,10 +189,10 @@ export default async function VictimDashboard() {
               >
                 <FileText className="w-7 h-7 text-navy-400" />
               </div>
-              <p className="text-[15px] text-navy-800 font-semibold mt-5">
+              <p className="text-base text-navy-800 font-semibold mt-5">
                 아직 접수된 사건이 없어요
               </p>
-              <p className="text-[13px] text-muted-foreground mt-1.5">
+              <p className="text-sm text-muted-foreground mt-1.5">
                 우측 상단{" "}
                 <span className="inline-flex items-center justify-center w-5 h-5 bg-gold-500 rounded-md text-white text-[10px] font-bold align-middle mx-0.5">
                   +

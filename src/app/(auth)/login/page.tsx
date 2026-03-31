@@ -16,7 +16,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 
 const INPUT_CLASS =
-  "h-[54px] rounded-2xl border-border/60 bg-slate-50/50 focus:bg-white text-[15px] px-4 transition-all duration-200";
+  "h-12 rounded-xl border-border/60 bg-slate-50/50 focus:bg-white text-base px-4 transition-all duration-200";
 
 export default function LoginPage() {
   return (
@@ -84,7 +84,7 @@ function LoginForm() {
     >
       <div className="flex-1 space-y-5">
         <div className="space-y-2">
-          <Label className="text-[14px] font-medium text-navy-800">
+          <Label className="text-sm font-medium text-navy-800">
             이메일
           </Label>
           <Input
@@ -101,7 +101,7 @@ function LoginForm() {
         </div>
 
         <div className="space-y-2">
-          <Label className="text-[14px] font-medium text-navy-800">
+          <Label className="text-sm font-medium text-navy-800">
             비밀번호
           </Label>
           <Input
@@ -122,7 +122,7 @@ function LoginForm() {
         <motion.div whileTap={{ scale: 0.97 }}>
           <Button
             type="submit"
-            className="w-full h-[54px] bg-navy-700 hover:bg-navy-800 text-white text-[15px] font-bold rounded-2xl shadow-md shadow-navy-700/15 transition-all"
+            className="w-full h-12 bg-navy-700 hover:bg-navy-800 text-white text-base font-bold rounded-xl shadow-md shadow-navy-700/15 transition-all"
             disabled={isLoading}
           >
             {isLoading ? (
@@ -135,7 +135,7 @@ function LoginForm() {
 
         <div className="relative flex items-center gap-3 py-1">
           <Separator className="flex-1" />
-          <span className="text-[12px] text-muted-foreground">또는</span>
+          <span className="text-xs text-muted-foreground">또는</span>
           <Separator className="flex-1" />
         </div>
 
@@ -144,7 +144,7 @@ function LoginForm() {
             <Button
               type="button"
               variant="outline"
-              className="w-full h-[54px] text-navy-700 text-[15px] font-semibold rounded-2xl border-navy-200 hover:bg-navy-50/50"
+              className="w-full h-12 text-navy-700 text-base font-semibold rounded-xl border-navy-200 hover:bg-navy-50/50"
             >
               회원가입
             </Button>

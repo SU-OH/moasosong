@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { useInView, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
 
 export default function AnimatedNumber({
   value,
@@ -13,6 +13,7 @@ export default function AnimatedNumber({
   suffix?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
+  const shouldReduce = useReducedMotion();
   const inView = useInView(ref, { once: true });
   const motionValue = useMotionValue(0);
   const spring = useSpring(motionValue, {
@@ -20,20 +21,26 @@ export default function AnimatedNumber({
     damping: 20,
     restDelta: 0.1,
   });
-  const [display, setDisplay] = useState("0");
+  const [display, setDisplay] = useState(
+    shouldReduce ? value.toLocaleString() : "0"
+  );
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !shouldReduce) {
       motionValue.set(value);
     }
-  }, [inView, value, motionValue]);
+  }, [inView, value, motionValue, shouldReduce]);
 
   useEffect(() => {
+    if (shouldReduce) {
+      setDisplay(value.toLocaleString());
+      return;
+    }
     const unsubscribe = spring.on("change", (v) => {
       setDisplay(Math.round(v).toLocaleString());
     });
     return unsubscribe;
-  }, [spring]);
+  }, [spring, shouldReduce, value]);
 
   return (
     <span ref={ref} className={className}>

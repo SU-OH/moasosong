@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 type Direction = "up" | "down" | "left" | "right";
@@ -23,18 +23,18 @@ export default function AnimatedEntry({
   direction?: Direction;
   className?: string;
 }) {
+  const shouldReduce = useReducedMotion();
   const offset = offsets[direction];
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: offset.x, y: offset.y }}
+      initial={shouldReduce ? false : { opacity: 0, x: offset.x, y: offset.y }}
       animate={{ opacity: 1, x: 0, y: 0 }}
-      transition={{
-        type: "spring",
-        stiffness: 260,
-        damping: 26,
-        delay,
-      }}
+      transition={
+        shouldReduce
+          ? { duration: 0 }
+          : { type: "spring", stiffness: 260, damping: 26, delay }
+      }
       className={className}
     >
       {children}

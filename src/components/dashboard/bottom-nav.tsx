@@ -2,26 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, FileText, MessageCircle, UserCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { getNavItems } from "@/lib/nav-items";
 import type { UserRole } from "@/types/database";
-
-type NavItem = {
-  href: string;
-  label: string;
-  icon: React.ComponentType<{ className?: string }>;
-};
-
-function getNavItems(role: UserRole): NavItem[] {
-  const prefix = role === "lawyer" ? "/lawyer" : "/victim";
-  return [
-    { href: `${prefix}/dashboard`, label: "홈", icon: Home },
-    { href: `${prefix}/cases`, label: "사건", icon: FileText },
-    { href: `${prefix}/messages`, label: "채팅", icon: MessageCircle },
-    { href: `${prefix}/profile`, label: "MY", icon: UserCircle },
-  ];
-}
 
 export default function BottomNav({ role }: { role: UserRole }) {
   const pathname = usePathname();
@@ -29,10 +13,12 @@ export default function BottomNav({ role }: { role: UserRole }) {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 glass-nav rounded-t-2xl"
+      className="fixed bottom-0 left-0 right-0 z-50 glass-nav rounded-t-2xl lg:hidden"
       style={{ boxShadow: "var(--shadow-nav)" }}
+      role="navigation"
+      aria-label="메인 내비게이션"
     >
-      <div className="max-w-lg mx-auto flex items-stretch h-[64px]">
+      <div className="flex items-stretch h-[64px]">
         {navItems.map((item) => {
           const isActive =
             pathname === item.href || pathname.startsWith(item.href + "/");
@@ -42,7 +28,7 @@ export default function BottomNav({ role }: { role: UserRole }) {
             <Link
               key={item.href}
               href={item.href}
-              className="flex-1 flex flex-col items-center justify-center gap-0.5 relative"
+              className="flex-1 flex flex-col items-center justify-center gap-0.5 relative min-h-[44px]"
             >
               {/* 활성 인디케이터 필 */}
               {isActive && (
@@ -63,7 +49,7 @@ export default function BottomNav({ role }: { role: UserRole }) {
               >
                 <Icon
                   className={cn(
-                    "w-[22px] h-[22px] transition-colors duration-200",
+                    "w-6 h-6 transition-colors duration-200",
                     isActive
                       ? "text-navy-700 stroke-[2.4px]"
                       : "text-gray-400"
@@ -72,7 +58,7 @@ export default function BottomNav({ role }: { role: UserRole }) {
               </motion.div>
               <span
                 className={cn(
-                  "text-[10px] transition-colors duration-200",
+                  "text-[11px] transition-colors duration-200",
                   isActive
                     ? "text-navy-700 font-bold"
                     : "text-gray-400 font-medium"

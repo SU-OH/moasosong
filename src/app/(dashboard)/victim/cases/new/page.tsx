@@ -143,7 +143,7 @@ export default function NewCasePage() {
             <CardContent className="pt-6 space-y-4">
               <div className="space-y-2">
                 <Label>사기 유형</Label>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-3">
                   {FRAUD_TYPES.map((type) => (
                     <button
                       key={type.value}

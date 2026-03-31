@@ -8,6 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
+  --font-heading: var(--font-sans);
   --font-mono: var(--font-geist-mono);
 
   /* Navy 컬러 팔레트 */
@@ -263,5 +264,31 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== 반응형 컨테이너 ===== */
+
+.app-container {
+  @apply w-full mx-auto px-5;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 720px;
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 960px;
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .app-container {
+    max-width: 1200px;
   }
 }

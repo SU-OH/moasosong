@@ -51,7 +51,7 @@ export default async function LawyerDashboard() {
       </div>
 
       {/* 통계 카드 */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-3 md:gap-4">
         <Card className="border-0 shadow-sm">
           <CardContent className="p-4 text-center">
             <Layers className="w-6 h-6 mx-auto text-navy-600" />
@@ -98,7 +98,7 @@ export default async function LawyerDashboard() {
         </div>
 
         {categories && categories.length > 0 ? (
-          <div className="space-y-3">
+          <div className="space-y-3 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-3">
             {categories.map((cat) => (
               <Link key={cat.id} href={`/lawyer/cases/${cat.id}`}>
                 <Card className="border-0 shadow-sm hover:shadow-md transition-shadow cursor-pointer">

@@ -47,7 +47,7 @@ export default function OnboardingPage() {
   const slide = SLIDES[current];
 
   return (
-    <div className="min-h-dvh flex flex-col max-w-lg mx-auto relative overflow-hidden animated-gradient-bg">
+    <div className="min-h-dvh flex flex-col max-w-lg mx-auto md:max-w-2xl lg:max-w-3xl relative overflow-hidden animated-gradient-bg">
       {/* 부유 오브 */}
       {[
         { size: 280, top: "8%", left: "-20%", delay: 0, color: "bg-navy-400/10" },
@@ -79,7 +79,7 @@ export default function OnboardingPage() {
       <div className="relative z-10 flex justify-end px-5 pt-5">
         <Link
           href="/login"
-          className="text-[13px] text-white/50 active:text-white/80 transition-colors"
+          className="text-sm text-white/50 active:text-white/80 transition-colors"
         >
           건너뛰기
         </Link>
@@ -111,11 +111,11 @@ export default function OnboardingPage() {
               <slide.Icon className="w-14 h-14 text-white/90" />
             </motion.div>
 
-            <h1 className="text-[28px] font-extrabold text-white leading-tight whitespace-pre-line tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight whitespace-pre-line tracking-tight">
               {slide.title}
             </h1>
 
-            <p className="mt-4 text-[15px] text-white/55 leading-relaxed whitespace-pre-line">
+            <p className="mt-4 text-base md:text-lg text-white/55 leading-relaxed whitespace-pre-line">
               {slide.description}
             </p>
           </motion.div>
@@ -145,7 +145,7 @@ export default function OnboardingPage() {
           <div className="space-y-3">
             <Link href="/signup" className="block">
               <motion.div whileTap={{ scale: 0.97 }}>
-                <Button className="w-full h-[54px] bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white text-[15px] font-bold rounded-2xl shadow-lg shadow-gold-500/25">
+                <Button className="w-full h-12 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white text-base font-bold rounded-2xl shadow-lg shadow-gold-500/25">
                   시작하기
                 </Button>
               </motion.div>
@@ -153,7 +153,7 @@ export default function OnboardingPage() {
             <Link href="/login" className="block">
               <Button
                 variant="ghost"
-                className="w-full h-[54px] text-white/60 hover:text-white hover:bg-white/5 text-[15px] font-medium rounded-2xl"
+                className="w-full h-12 text-white/60 hover:text-white hover:bg-white/5 text-base font-medium rounded-2xl"
               >
                 이미 계정이 있어요
               </Button>
@@ -162,7 +162,7 @@ export default function OnboardingPage() {
         ) : (
           <motion.div whileTap={{ scale: 0.97 }}>
             <Button
-              className="w-full h-[54px] bg-white/10 hover:bg-white/15 text-white text-[15px] font-semibold rounded-2xl border border-white/10 backdrop-blur gap-1"
+              className="w-full h-12 bg-white/10 hover:bg-white/15 text-white text-base font-semibold rounded-2xl border border-white/10 backdrop-blur gap-1"
               onClick={() => goTo(current + 1)}
             >
               다음
