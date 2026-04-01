@@ -48,13 +48,13 @@ export default function OnboardingPage() {
 
   return (
     <div className="min-h-dvh flex flex-col w-full relative overflow-hidden animated-gradient-bg">
-      {/* 부유 오브 */}
+      {/* 부유 오브 (정적) */}
       {[
-        { size: 280, top: "8%", left: "-20%", delay: 0, color: "bg-navy-400/10" },
-        { size: 200, top: "60%", right: "-15%", delay: 2, color: "bg-gold-400/10" },
-        { size: 160, bottom: "15%", left: "10%", delay: 4, color: "bg-navy-300/8" },
+        { size: 280, top: "8%", left: "-20%", color: "bg-navy-400/10" },
+        { size: 200, top: "60%", right: "-15%", color: "bg-gold-400/10" },
+        { size: 160, bottom: "15%", left: "10%", color: "bg-navy-300/8" },
       ].map((orb, i) => (
-        <motion.div
+        <div
           key={i}
           className={`absolute rounded-full blur-3xl ${orb.color}`}
           style={{
@@ -64,13 +64,6 @@ export default function OnboardingPage() {
             left: orb.left,
             right: orb.right,
             bottom: orb.bottom,
-          }}
-          animate={{ y: [0, -14, 0] }}
-          transition={{
-            repeat: Infinity,
-            duration: 6,
-            ease: "easeInOut",
-            delay: orb.delay,
           }}
         />
       ))}
@@ -99,17 +92,11 @@ export default function OnboardingPage() {
             className="flex flex-col items-center text-center"
           >
             {/* 글래스 아이콘 */}
-            <motion.div
+            <div
               className="w-28 h-28 rounded-[28px] glass-dark flex items-center justify-center mb-10"
-              animate={{ y: [0, -6, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-                ease: "easeInOut",
-              }}
             >
               <slide.Icon className="w-14 h-14 text-white/90" />
-            </motion.div>
+            </div>
 
             <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight whitespace-pre-line tracking-tight">
               {slide.title}

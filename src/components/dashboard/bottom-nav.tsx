@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { getNavItems } from "@/lib/nav-items";
 import type { UserRole } from "@/types/database";
@@ -30,32 +29,18 @@ export default function BottomNav({ role }: { role: UserRole }) {
               href={item.href}
               className="flex-1 flex flex-col items-center justify-center gap-0.5 relative min-h-[44px]"
             >
-              {/* 활성 인디케이터 필 */}
               {isActive && (
-                <motion.div
-                  layoutId="nav-indicator"
-                  className="absolute top-0 w-8 h-[3px] bg-navy-700 rounded-full"
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 30,
-                  }}
-                />
+                <div className="absolute top-0 w-8 h-[3px] bg-navy-700 rounded-full" />
               )}
 
-              <motion.div
-                animate={isActive ? { scale: [1, 1.15, 1] } : { scale: 1 }}
-                transition={{ duration: 0.25 }}
-              >
-                <Icon
-                  className={cn(
-                    "w-6 h-6 transition-colors duration-200",
-                    isActive
-                      ? "text-navy-700 stroke-[2.4px]"
-                      : "text-gray-400"
-                  )}
-                />
-              </motion.div>
+              <Icon
+                className={cn(
+                  "w-6 h-6 transition-colors duration-200",
+                  isActive
+                    ? "text-navy-700 stroke-[2.4px]"
+                    : "text-gray-400"
+                )}
+              />
               <span
                 className={cn(
                   "text-[11px] transition-colors duration-200",

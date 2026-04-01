@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { Bell, Settings } from "lucide-react";
-import { motion } from "framer-motion";
 import { createClient } from "@/lib/supabase/client";
 import { toast } from "sonner";
 
@@ -28,22 +27,20 @@ export default function DashboardHeader({
         </h1>
 
         <div className="flex items-center gap-0.5">
-          <motion.button
-            whileTap={{ scale: 0.88 }}
-            className="relative w-10 h-10 flex items-center justify-center rounded-xl hover:bg-navy-50 active:bg-navy-100 transition-colors"
+          <button
+            className="relative w-10 h-10 flex items-center justify-center rounded-xl hover:bg-navy-50 active:bg-navy-100 active:scale-95 transition-all"
             aria-label="알림"
           >
             <Bell className="w-5 h-5 text-navy-800" />
             <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white" />
-          </motion.button>
-          <motion.button
-            whileTap={{ scale: 0.88 }}
-            className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-navy-50 active:bg-navy-100 transition-colors"
+          </button>
+          <button
+            className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-navy-50 active:bg-navy-100 active:scale-95 transition-all"
             onClick={handleLogout}
             aria-label="설정"
           >
             <Settings className="w-5 h-5 text-navy-800" />
-          </motion.button>
+          </button>
         </div>
       </div>
     </header>

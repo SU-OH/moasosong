@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { motion } from "framer-motion";
 import { LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getNavItems } from "@/lib/nav-items";
@@ -30,7 +29,7 @@ export default function DesktopSidebar({
   }
 
   return (
-    <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-[260px] z-50 flex-col border-r border-border/40 bg-white/80 backdrop-blur-xl">
+    <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-[260px] z-50 flex-col border-r border-border/40 bg-white/90">
       {/* 로고 */}
       <div className="h-[56px] flex items-center px-6 border-b border-border/30">
         <h1 className="text-xl font-extrabold gradient-text tracking-tight">
@@ -50,18 +49,14 @@ export default function DesktopSidebar({
               key={item.href}
               href={item.href}
               className={cn(
-                "relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200",
+                "relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors duration-200",
                 isActive
                   ? "bg-navy-50 text-navy-700"
                   : "text-muted-foreground hover:bg-slate-50 hover:text-navy-800"
               )}
             >
               {isActive && (
-                <motion.div
-                  layoutId="sidebar-indicator"
-                  className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-navy-700 rounded-full"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-6 bg-navy-700 rounded-full" />
               )}
               <Icon
                 className={cn(

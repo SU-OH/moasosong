@@ -185,27 +185,27 @@
 
 .animated-gradient-bg {
   background: linear-gradient(135deg, #0a1628 0%, #0F1F4D 20%, #1E3A8A 45%, #2B4FAF 65%, #1E3A8A 80%, #0F1F4D 100%);
-  background-size: 400% 400%;
-  animation: gradient-shift 8s ease infinite;
+  background-size: 200% 200%;
+  animation: gradient-shift 20s ease infinite;
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .glass-dark {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(24px) saturate(200%);
-  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .gradient-text {

@@ -185,7 +185,6 @@ export default async function VictimDashboard() {
             <div className="bg-white rounded-2xl p-10 text-center card-premium">
               <div
                 className="w-16 h-16 bg-gradient-to-br from-navy-50 to-navy-100 rounded-2xl flex items-center justify-center mx-auto"
-                style={{ animation: "float 5s ease-in-out infinite" }}
               >
                 <FileText className="w-7 h-7 text-navy-400" />
               </div>
