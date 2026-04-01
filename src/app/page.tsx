@@ -47,7 +47,7 @@ export default function OnboardingPage() {
   const slide = SLIDES[current];
 
   return (
-    <div className="min-h-dvh flex flex-col max-w-lg mx-auto md:max-w-2xl lg:max-w-3xl relative overflow-hidden animated-gradient-bg">
+    <div className="min-h-dvh flex flex-col w-full relative overflow-hidden animated-gradient-bg">
       {/* 부유 오브 */}
       {[
         { size: 280, top: "8%", left: "-20%", delay: 0, color: "bg-navy-400/10" },

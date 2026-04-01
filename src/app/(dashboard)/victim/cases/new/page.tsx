@@ -89,6 +89,7 @@ export default function NewCasePage() {
         evidence_description: data.evidence_description || null,
         police_report_filed: data.police_report_filed,
         police_report_number: data.police_report_number || null,
+        status: "submitted",
       })
       .select("id")
       .single();
